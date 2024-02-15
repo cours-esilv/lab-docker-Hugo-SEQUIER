@@ -4,6 +4,10 @@ services:
     image: hugosequier/lab-docker-esilv:v1.0
     ports:
       - "80:5000"
+    volumes:
+      - type: volume
+        source: backend-data
+        target: /data
     environment:
       WS_BACK_URL: "http://localhost:80"
   front-service:
@@ -12,3 +16,6 @@ services:
       - "8081:80"
     environment:
       WS_BACK_URL: "http://localhost:80"
+volumes:
+  backend-data:
+    name: backend-data-volume
