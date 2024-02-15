@@ -1,0 +1,14 @@
+version: '3'
+services:
+  backend-service:
+    image: hugosequier/lab-docker-esilv:v1.0
+    ports:
+      - "80:5000"
+    environment:
+      WS_BACK_URL: "http://localhost:80"
+  front-service:
+    image: hugosequier/front:v1.0
+    ports:
+      - "8081:80"
+    environment:
+      WS_BACK_URL: "http://localhost:80"
